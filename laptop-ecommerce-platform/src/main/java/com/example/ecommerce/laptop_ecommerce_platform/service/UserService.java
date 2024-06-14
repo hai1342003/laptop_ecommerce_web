@@ -1,8 +1,7 @@
 package com.example.ecommerce.laptop_ecommerce_platform.service;
 
 import com.example.ecommerce.laptop_ecommerce_platform.dto.UserDto;
-
-import java.util.List;
+import org.springframework.security.core.userdetails.User;
 
 public interface UserService {
     UserDto createUser(UserDto userDto);
