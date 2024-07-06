@@ -5,6 +5,7 @@ import com.example.ecommerce.laptop_ecommerce_platform.service.ReviewService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -41,6 +42,7 @@ public class ReviewController {
     }
 
     @PutMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN') or #userId == principal.id")
     public ResponseEntity<ReviewDto> updateReview(@PathVariable("id") Long reviewId,
                                                   @RequestBody ReviewDto updatedReview) {
         ReviewDto reviewDto = reviewService.updateReview(reviewId, updatedReview);
@@ -48,6 +50,7 @@ public class ReviewController {
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('SUPER_ADMIN') or #userId == principal.id")
     public ResponseEntity<String> deleteReview(@PathVariable("id") Long reviewId) {
         reviewService.deleteReview(reviewId);
         return ResponseEntity.ok("Review deleted successfully!");

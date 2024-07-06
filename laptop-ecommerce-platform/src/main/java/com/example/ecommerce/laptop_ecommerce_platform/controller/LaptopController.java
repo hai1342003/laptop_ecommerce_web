@@ -8,6 +8,7 @@ import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class LaptopController {
     private LaptopService laptopService;
 
     @PostMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<LaptopDto> createLaptop(@RequestBody LaptopDto laptopDto) {
         LaptopDto savedLaptop = laptopService.createLaptop(laptopDto);
         return new ResponseEntity<>(savedLaptop, HttpStatus.CREATED);
@@ -42,6 +44,7 @@ public class LaptopController {
     }
 
     @PutMapping("{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<LaptopDto> updateLaptop(@PathVariable("id") Long laptopId,
                                                   @RequestBody LaptopDto updatedLaptop) {
         LaptopDto laptopDto = laptopService.updateLaptop(laptopId, updatedLaptop);
@@ -49,6 +52,7 @@ public class LaptopController {
     }
 
     @DeleteMapping("{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'SUPER_ADMIN')")
     public ResponseEntity<String> deleteLaptop(@PathVariable("id") Long laptopId) {
         laptopService.deleteLaptop(laptopId);
         return ResponseEntity.ok("Laptop deleted successfully!");
