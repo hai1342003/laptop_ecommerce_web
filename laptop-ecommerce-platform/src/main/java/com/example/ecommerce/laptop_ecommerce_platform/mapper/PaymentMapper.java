@@ -17,8 +17,7 @@ public class PaymentMapper {
                         payment.getOrder().getId(),
                         new UserDto(
                                 payment.getOrder().getUser().getId(),
-                                payment.getOrder().getUser().getUsername(),
-                                payment.getOrder().getUser().getRole()
+                                payment.getOrder().getUser().getUsername()
 
                         ),
                         payment.getOrder().getOrderDate(),
@@ -38,8 +37,7 @@ public class PaymentMapper {
                         paymentDto.getOrder().getId(),
                         new User(
                                 paymentDto.getOrder().getUser().getId(),
-                                paymentDto.getOrder().getUser().getName(),
-                                paymentDto.getOrder().getUser().getRole()
+                                paymentDto.getOrder().getUser().getName()
                         ),
                         paymentDto.getOrder().getOrderDate(),
                         paymentDto.getOrder().getStatus(),

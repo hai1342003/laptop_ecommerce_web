@@ -54,8 +54,7 @@ public class AddressServiceImpl implements AddressService {
         address.setUser(
                 new User(
                         updatedAddress.getUser().getId(),
-                        updatedAddress.getUser().getName(),
-                        updatedAddress.getUser().getRole()
+                        updatedAddress.getUser().getName()
                 )
         );
         address.setStreet(updatedAddress.getStreet());

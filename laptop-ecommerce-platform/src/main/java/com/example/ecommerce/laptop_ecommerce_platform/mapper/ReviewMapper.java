@@ -26,8 +26,7 @@ public class ReviewMapper {
                 ),
                 new UserDto(
                         review.getUser().getId(),
-                        review.getUser().getUsername(),
-                        review.getUser().getRole()
+                        review.getUser().getUsername()
                 ),
                 review.getRating(),
                 review.getComment(),
@@ -53,8 +52,7 @@ public class ReviewMapper {
                 ),
                 new User(
                         reviewDto.getUser().getId(),
-                        reviewDto.getUser().getName(),
-                        reviewDto.getUser().getRole()
+                        reviewDto.getUser().getName()
                 ),
                 reviewDto.getRating(),
                 reviewDto.getComment(),

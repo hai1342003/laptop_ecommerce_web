@@ -15,8 +15,7 @@ public class AddressMapper {
                 address.getId(),
                 new UserDto(
                         address.getUser().getId(),
-                        address.getUser().getUsername(),
-                        address.getUser().getRole()
+                        address.getUser().getUsername()
                 ),
                 address.getStreet(),
                 address.getCity(),
@@ -30,8 +29,7 @@ public class AddressMapper {
                 addressDto.getId(),
                 new User(
                         addressDto.getUser().getId(),
-                        addressDto.getUser().getName(),
-                        addressDto.getUser().getRole()
+                        addressDto.getUser().getName()
                 ),
                 addressDto.getStreet(),
                 addressDto.getCity(),

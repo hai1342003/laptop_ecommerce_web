@@ -13,8 +13,7 @@ public class OrderMapper {
                 order.getId(),
                 new UserDto(
                     order.getUser().getId(),
-                    order.getUser().getUsername(),
-                    order.getUser().getRole()
+                    order.getUser().getUsername()
                 ),
                 order.getOrderDate(),
                 order.getStatus(),
@@ -27,8 +26,7 @@ public class OrderMapper {
                 orderDto.getId(),
                 new User(
                         orderDto.getUser().getId(),
-                        orderDto.getUser().getName(),
-                        orderDto.getUser().getRole()
+                        orderDto.getUser().getName()
                 ),
                 orderDto.getOrderDate(),
                 orderDto.getStatus(),

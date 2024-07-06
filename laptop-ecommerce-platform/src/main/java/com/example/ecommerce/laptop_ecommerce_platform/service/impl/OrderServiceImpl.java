@@ -69,8 +69,7 @@ public class OrderServiceImpl implements OrderService {
         order.setUser(
                 new User(
                         updatedOrder.getUser().getId(),
-                        updatedOrder.getUser().getName(),
-                        updatedOrder.getUser().getRole()
+                        updatedOrder.getUser().getName()
                 )
         );
 

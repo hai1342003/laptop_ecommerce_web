@@ -1,7 +1,10 @@
 package com.example.ecommerce.laptop_ecommerce_platform.service;
 
+import com.example.ecommerce.laptop_ecommerce_platform.dto.RegisterUserDto;
 import com.example.ecommerce.laptop_ecommerce_platform.dto.UserDto;
-import org.springframework.security.core.userdetails.User;
+import com.example.ecommerce.laptop_ecommerce_platform.entity.User;
+
+import java.util.List;
 
 public interface UserService {
     UserDto createUser(UserDto userDto);
@@ -11,4 +14,8 @@ public interface UserService {
     UserDto updateUser(Long userId, UserDto updatedUser);
 
     void deleteUser(Long userId);
+
+    List<User> allUsers();
+
+    User createAdministrator(RegisterUserDto registerUserDto);
 }
