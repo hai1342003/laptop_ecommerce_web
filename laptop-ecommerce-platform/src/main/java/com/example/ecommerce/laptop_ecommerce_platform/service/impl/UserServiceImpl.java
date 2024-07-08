@@ -10,6 +10,7 @@ import com.example.ecommerce.laptop_ecommerce_platform.mapper.UserMapper;
 import com.example.ecommerce.laptop_ecommerce_platform.repository.RoleRepository;
 import com.example.ecommerce.laptop_ecommerce_platform.repository.UserRepository;
 import com.example.ecommerce.laptop_ecommerce_platform.service.UserService;
+import org.springframework.cache.annotation.Cacheable;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,6 +37,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable(value = "userCache", key = "#userId")
     public UserDto getUserById(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() ->
