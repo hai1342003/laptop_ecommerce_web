@@ -54,6 +54,11 @@ public class UserServiceImpl implements UserService {
 
         user.setUsername(updatedUser.getName());
 
+        if (updatedUser.getPassword() != null) {
+            String encodedPassword = passwordEncoder.encode(updatedUser.getPassword());
+
+            user.setPassword(encodedPassword);
+        }
 
         User updatedUserObj = userRepository.save(user);
 

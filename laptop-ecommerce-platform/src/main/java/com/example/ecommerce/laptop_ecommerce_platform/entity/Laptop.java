@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+//import org.springframework.data.redis.core.RedisHash;
 
 @Getter
 @Setter
@@ -12,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "laptops")
+//@RedisHash("Laptop")
 public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

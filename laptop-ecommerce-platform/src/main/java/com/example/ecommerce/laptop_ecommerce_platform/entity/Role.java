@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+//import org.springframework.data.redis.core.RedisHash;
 
 import java.util.Date;
 
@@ -16,6 +17,9 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name = "roles")
 @Entity
+//@RedisHash("Role")
+
+
 public class Role {
 
     @Id

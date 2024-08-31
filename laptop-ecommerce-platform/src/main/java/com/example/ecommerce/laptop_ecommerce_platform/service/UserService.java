@@ -19,3 +19,4 @@ public interface UserService {
 
     User createAdministrator(RegisterUserDto registerUserDto);
 }
+

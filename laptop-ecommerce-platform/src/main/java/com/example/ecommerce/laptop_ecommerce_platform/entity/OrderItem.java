@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
+//import org.springframework.data.redis.core.RedisHash;
 
 @Getter
 @Setter
@@ -14,6 +15,7 @@ import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
 @AllArgsConstructor
 @Entity
 @Table(name = "order_items")
+//@RedisHash("OrderItem")
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

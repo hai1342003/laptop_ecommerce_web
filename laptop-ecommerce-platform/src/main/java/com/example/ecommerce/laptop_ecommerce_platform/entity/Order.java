@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+//import org.springframework.data.redis.core.RedisHash;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
+//@RedisHash("Order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

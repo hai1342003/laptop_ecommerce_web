@@ -9,14 +9,18 @@ public class UserMapper {
     public static UserDto mapToUserDto(User user) {
         return new UserDto(
                 user.getId(),
-                user.getUsername()
+                user.getUsername(),
+
+                user.getPassword()
         );
     }
 
     public static User mapToUser(UserDto userDto) {
         return new User(
                 userDto.getId(),
-                userDto.getName()
+                userDto.getName(),
+
+                userDto.getPassword()
         );
     }
 }
