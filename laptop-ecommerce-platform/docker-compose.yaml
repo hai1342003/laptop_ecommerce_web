@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: laptopdb-postgres
+    environment:
+      POSTGRES_DB: laptopdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: anhhaido13
+    ports:
+      - "8800:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - laptop_network
+
+  app:
+    image: laptop_image # Thay bằng image của project Spring Boot
+    container_name: laptop_app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/laptopdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: anhhaido13
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_OPEN_IN_VIEW: false
+      SPRING_JPA_SHOW_SQL: true
+      SECURITY_JWT_SECRET_KEY: 3cfa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e007b
+      SECURITY_JWT_EXPIRATION_TIME: 3600000
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - laptop_network
+
+networks:
+  laptop_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
